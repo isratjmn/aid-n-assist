@@ -54,7 +54,7 @@ const Volunteers = () => {
 	};
 
 	return (
-		<section className="bg-gray-100 min-h-screen pt-8">
+		<section className="bg-gray-100 min-h-screen pt-8 mt-14">
 			<div className="border rounded-lg m-10 md:m-16 lg:mt-10 lg:mb-20 lg:mx-52 lg:px-20 lg:py-14 md:p-16 p-10 bg-white shadow-lg">
 				<h2 className="text-center font-bold text-4xl text-emerald-600 mb-2">
 					Become a Volunteer
@@ -72,18 +72,14 @@ const Volunteers = () => {
 							<div className="relative z-0">
 								<input
 									type="text"
-									name="name"
-									id="name"
 									className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-400 focus:outline-none focus:ring-0 focus:border-green-400 peer"
-									placeholder=""
+									placeholder="Name"
 									required
 								/>
 								<label
 									for="name"
 									className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300  -translate-y-6  top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-400 peer-focus:dark:text-green-400  peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-6"
-								>
-									Name
-								</label>
+								></label>
 							</div>
 							<div className="relative z-0 w-full mb-6 group">
 								<input
@@ -91,15 +87,13 @@ const Volunteers = () => {
 									name="email"
 									id="email"
 									className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-400 peer"
-									placeholder=" "
+									placeholder="Email"
 									required
 								/>
 								<label
 									for="email"
 									className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300  -translate-y-6 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-400 peer-focus:dark:text-green-400  peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-6"
-								>
-									Email
-								</label>
+								></label>
 							</div>
 							<div className="relative z-0 w-full mb-6 group">
 								<input
@@ -107,15 +101,13 @@ const Volunteers = () => {
 									name="imageURL"
 									id="imageURL"
 									className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-400 focus:outline-none focus:ring-0 focus:border-green-400 peer"
-									placeholder=" "
+									placeholder="Image"
 									required
 								/>
 								<label
 									for="imageURL"
 									className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300  -translate-y-6 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-400 peer-focus:dark:text-green-400  peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-6"
-								>
-									Image
-								</label>
+								></label>
 							</div>
 							<div className="grid md:grid-cols-2 md:gap-6">
 								<div className="relative z-0 w-full mb-6 group">
@@ -125,15 +117,13 @@ const Volunteers = () => {
 										name="designation"
 										id="designation"
 										className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-400 focus:outline-none focus:ring-0 focus:border-green-400 peer"
-										placeholder=""
+										placeholder="Designation"
 										readOnly
 									/>
 									<label
 										for="designation"
 										className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300  -translate-y-6 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-400 peer-focus:dark:text-green-400  peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-6"
-									>
-										Designation
-									</label>
+									></label>
 								</div>
 								<div className="relative z-0 w-full mb-6 group">
 									<input
@@ -141,15 +131,13 @@ const Volunteers = () => {
 										name="bloodGroup"
 										id="bloodGroup"
 										className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-400 focus:outline-none focus:ring-0 focus:border-green-400 peer"
-										placeholder=""
+										placeholder="Blood Group"
 										required
 									/>
 									<label
 										for="bloodGroup"
 										className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300  -translate-y-6 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-400 peer-focus:dark:text-green-400  peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-6"
-									>
-										Blood Group
-									</label>
+									></label>
 								</div>
 							</div>
 
@@ -159,15 +147,13 @@ const Volunteers = () => {
 									name="phoneNumber"
 									id="phoneNumber"
 									className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-400 focus:outline-none focus:ring-0 focus:border-green-400 peer"
-									placeholder=""
+									placeholder="Phone number (+8801xxxxxxxxx)"
 									required
 								/>
 								<label
 									for="phoneNumber"
 									className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300  -translate-y-6 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-400 peer-focus:dark:text-green-400  peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-6"
-								>
-									Phone number (+8801xxxxxxxxx)
-								</label>
+								></label>
 							</div>
 							<div className="relative z-0 w-full mb-6 group">
 								<input
@@ -175,15 +161,13 @@ const Volunteers = () => {
 									name="workPlace"
 									id="workPlace"
 									className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-400 focus:outline-none focus:ring-0 focus:border-green-400 peer"
-									placeholder=""
+									placeholder="Work Place"
 									required
 								/>
 								<label
 									for="workPlace"
 									className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300  -translate-y-6 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-400 peer-focus:dark:text-green-400  peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-6"
-								>
-									Work Place
-								</label>
+								></label>
 							</div>
 
 							<button

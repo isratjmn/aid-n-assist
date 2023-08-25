@@ -20,8 +20,8 @@ const Navbar = () => {
 	const [navbarTransparent, setNavbarTransparent] = useState(true);
 	const toggleDropdown = () => {
 		setShowSpinner(true);
+		setIsOpen(!isOpen);
 		setTimeout(() => {
-			setIsOpen(!isOpen);
 			setShowSpinner(false);
 		}, 2000);
 	};
@@ -93,28 +93,28 @@ const Navbar = () => {
 								aria-labelledby="user-menu-button"
 							>
 								<li>
-									<a
-										href="#"
+									<Link
+										href="/dashboard"
 										className="block px-4 py-2 text-sm text-black hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
 									>
 										Dashboard
-									</a>
+									</Link>
 								</li>
 								<li>
-									<a
+									<Link
 										href="#"
 										className="block px-4 py-2 text-sm text-black hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
 									>
 										Settings
-									</a>
+									</Link>
 								</li>
 								<li>
-									<a
+									<Link
 										href="#"
 										className="block px-4 py-2 text-sm text-black hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
 									>
 										Earnings
-									</a>
+									</Link>
 								</li>
 								<li>
 									<button
@@ -222,6 +222,16 @@ const Navbar = () => {
 					>
 						About
 					</Link>
+					<Link
+						href="/event"
+						className={`flex justify-end mt-2 md:mt-0 md:inline-block ${
+							router.pathname === "/"
+								? "text-white"
+								: "text-emerald-500 bg-slate-100 md:bg-transparent py-2 rounded-sm pe-3 font-bold"
+						}`}
+					>
+						Event
+					</Link>
 
 					<Link
 						href="/howwework"
@@ -232,6 +242,36 @@ const Navbar = () => {
 						}`}
 					>
 						How we Work
+					</Link>
+					<Link
+						href="/faq"
+						className={`flex justify-end mt-2 md:mt-0 md:inline-block ${
+							router.pathname === "/about"
+								? "text-emerald-500 font-bold"
+								: "text-black md:text-white bg-slate-100 md:bg-transparent py-2 rounded-sm pe-3 font-bold"
+						}`}
+					>
+						FAQ
+					</Link>
+					{/* <Link
+						href="/causesdetails"
+						className={`flex justify-end mt-2 md:mt-0 md:inline-block ${
+							router.pathname === "/about"
+								? "text-emerald-500 font-bold"
+								: "text-black md:text-white bg-slate-100 md:bg-transparent py-2 rounded-sm pe-3 font-bold"
+						}`}
+					>
+						Causes
+					</Link> */}
+					<Link
+						href="/feedback"
+						className={`flex justify-end mt-2 md:mt-0 md:inline-block ${
+							router.pathname === "/about"
+								? "text-emerald-500 font-bold"
+								: "text-black md:text-white bg-slate-100 md:bg-transparent py-2 rounded-sm pe-3 font-bold"
+						}`}
+					>
+						Feedback
 					</Link>
 
 					<Link

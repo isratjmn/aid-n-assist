@@ -1,6 +1,6 @@
 "use client";
-
 import Iframe from "@/components/Iframe/Iframe";
+import Causes from "@/components/PopularCauses/Causes";
 import Feedback from "@/components/feedback/Feedback";
 import WorkBanner from "@/components/howworkbanner/WorkBanner";
 import ProgrssbarHow from "@/components/progressHowweWork/ProgrssbarHow";
@@ -16,7 +16,8 @@ const HowWeWork = () => {
 	return (
 		<div className="my-14">
 			<WorkBanner></WorkBanner>
-			<div className="mt-3">
+			
+			<div className="mt-3 max-w-7xl mx-auto">
 				<div id="accordion-open" data-accordion="open">
 					<h2 id="accordion-open-heading-1">
 						<button
@@ -87,7 +88,7 @@ const HowWeWork = () => {
 					</div>
 				</div>
 			</div>
-			<Iframe></Iframe>
+			{/* <Iframe></Iframe> */}
 			<ProgrssbarHow></ProgrssbarHow>
 			<Feedback></Feedback>
 		</div>

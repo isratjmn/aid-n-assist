@@ -8,23 +8,21 @@ import OurMission from "@/components/OurMission/OurMission";
 import OurTeam from "@/components/OurTeam/OurTeam";
 import Partner from "@/components/Partner/Partner";
 import Causes from "@/components/PopularCauses/Causes";
+import Testimonial from "@/components/Testimonial/Testimonial";
+// import Testimonial from "@/components/Testimonial/Testimonial";
 import Volunteers from "@/components/Volunteers/Volunteers";
 
 export default function Home() {
 	return (
 		<div>
 			<HomeSlider />
-			<HomeBanner />
-			{/* <OurMission /> */}
 			<Misson />
-			{/* <OurTeam /> */}
-			<Volunteers />
 			<BecomeVolunteer />
-			{/* <Contact /> */}
+			<Volunteers />
 			<Causes />
 			<Gallery />
+			<Testimonial />
 			<Partner />
-			{/* <BecomeVolunteer /> */}
 		</div>
 	);
 }

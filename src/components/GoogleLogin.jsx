@@ -1,6 +1,5 @@
 import useAuth from "@/hooks/useAuth";
 import createJWT from "@/util/createJWT";
-// import createJWT from "@/utils/createJWT";
 import { useRouter } from "next/navigation";
 import { startTransition } from "react";
 import { toast } from "react-hot-toast";
@@ -31,7 +30,7 @@ const GoogleLogin = ({ from }) => {
 		<button
 			onClick={handleGoogleLogin}
 			type="button"
-			className="btn btn-secondary mx-auto text-center"
+			className="btn btn-secondary mx-auto text-center w-full"
 		>
 			<span className="flex items-center justify-center">
 				<FcGoogle className="text-3xl mr-3" />

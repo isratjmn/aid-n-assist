@@ -5,7 +5,7 @@ const Volunteers = async () => {
 	const volunteers = await getVolunteersFromDB();
 
 	return (
-		<div className="max-w-7xl mx-auto mt-4">
+		<div className="max-w-7xl mx-auto mt-1">
 			<h1 className="text-center pt-20 pb-6 text-5xl lg:max-w-4xl font-bold mx-auto">
 				Our Inspiring <span className="text-blue-800"> Volunteers</span>
 			</h1>

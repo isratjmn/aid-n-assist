@@ -7,7 +7,6 @@ export async function GET() {
 	try {
 		await mongoose.connect(connectionSrt);
 		const data = await Cause.find();
-		console.log(data);
 		return NextResponse.json({ result: data, success: true });
 	} catch (error) {
 		console.error("Error:", error);

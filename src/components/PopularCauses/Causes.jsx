@@ -4,7 +4,6 @@ import Image from "next/image";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { HiOutlineHeart } from "react-icons/hi";
 import Link from "next/link";
-// import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 const Causes = () => {
@@ -21,10 +20,10 @@ const Causes = () => {
 					</p>
 				</div>
 				<div className="md:text-center sm:ml-auto">
-					<Link href="/" className="nav-link">
+					<Link href="/causesdetails" className="nav-link">
 						<button
 							type="button"
-							class="focus:outline-none text-white bg-emerald-500 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium text-sm px-6 py-3 mb-2"
+							class="focus:outline-none text-white bg-emerald-500 hover:bg-blue-800 focus:ring-4 focus:ring-purple-300 font-medium text-sm px-6 py-3 mb-2"
 						>
 							View Details
 						</button>

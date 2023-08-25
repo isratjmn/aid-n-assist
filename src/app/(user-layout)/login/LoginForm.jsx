@@ -39,73 +39,82 @@ const LoginForm = () => {
 		}
 	};
 	return (
-		<form onSubmit={handleSubmit(onSubmit)} className="card-body">
-			<div className="form-control">
-				<label htmlFor="email" className="label label-text">
-					Email
-				</label>
-				<input
-					type="email"
-					placeholder="email"
-					id="email"
-					name="email"
-					className="input input-bordered"
-					autoComplete="email"
-					{...register("email", {
-						required: true,
-						pattern: /^[\w-.]+@([\w-]+\.)+[\w-]{2,}$/,
-					})}
-				/>
-				{errors.email && (
-					<span className="text-red-500 text-base mt-1">
-						Please enter a valid email address.
-					</span>
-				)}
-			</div>
-			<div className="form-control">
-				<label htmlFor="password" className="label label-text">
-					Password
-				</label>
-				<input
-					type="password"
-					placeholder="password"
-					id="password"
-					name="password"
-					className="input input-bordered"
-					autoComplete="new-password"
-					{...register("password", { required: true, minLength: 6 })}
-				/>
-				{errors.password && (
-					<span className="text-red-500 text-base mt-1">
-						Please enter a password.
-					</span>
-				)}
-				<label className="label">
-					<a href="#" className="label-text-alt link link-hover">
-						Forgot Password?
-					</a>
-				</label>
-			</div>
-			<div className="form-control mt-6">
-				<button className="btn btn-[#059669]" type="submit">
-					Login
-				</button>
-			</div>
-			<p className="mt-3">
-				Don&apos;t have an account?
-				<Link
-					className="text-emerald-600 font-bold ml-1"
-					href="/signup"
-				>
-					Signup
-				</Link>
-			</p>
-			<div className="divider mt-5">OR</div>
-			<GoogleLogin
-				className="justify-center mx-auto w-full items-center"
-				from={from}
-			/>
-		</form>
+		<section>
+			<h1 className="text-5xl font-bold pt-4">Login Now!</h1>
+			<p className="pt-4 pb-6">Login now to connect with us.</p>
+			<form onSubmit={handleSubmit(onSubmit)} className="card-body">
+				<div className="form-control">
+					<label htmlFor="email" className="label label-text">
+						Email
+					</label>
+					<input
+						type="email"
+						placeholder="email"
+						id="email"
+						name="email"
+						className="input input-bordered"
+						autoComplete="email"
+						{...register("email", {
+							required: true,
+							pattern: /^[\w-.]+@([\w-]+\.)+[\w-]{2,}$/,
+						})}
+					/>
+					{errors.email && (
+						<span className="text-red-500 text-base mt-1">
+							Please enter a valid email address.
+						</span>
+					)}
+				</div>
+				<div className="form-control">
+					<label htmlFor="password" className="label label-text">
+						Password
+					</label>
+					<input
+						type="password"
+						placeholder="password"
+						id="password"
+						name="password"
+						className="input input-bordered"
+						autoComplete="new-password"
+						{...register("password", {
+							required: true,
+							minLength: 6,
+						})}
+					/>
+					{errors.password && (
+						<span className="text-red-500 text-base mt-1">
+							Please enter a password.
+						</span>
+					)}
+					<label className="label">
+						<a href="#" className="label-text-alt link link-hover">
+							Forgot Password?
+						</a>
+					</label>
+				</div>
+				<div className="form-control mt-6">
+					<button className="btn btn-[#059669]" type="submit">
+						Login
+					</button>
+				</div>
+				<p className="mt-3">
+					Don&apos;t have an account?
+					<Link
+						className="text-emerald-600 font-bold ml-1"
+						href="/signup"
+					>
+						Signup
+					</Link>
+				</p>
+				<div className="divider mt-5">OR</div>
+				<div className="text-center">
+					<GoogleLogin
+						className="justify-center text-center mx-auto items-center"
+						from={from}
+					/>
+				</div>
+			</form>
+		</section>
 	);
 };
 

@@ -1,26 +1,31 @@
-import React from "react";
+"use client";
 import "./testimonial.css";
 import Image from "next/image";
-import frist from "../../../public/Gallery/gallery-8.jpg";
+import frist from "../../../public/Gallery/testing.jpg";
 
 const Testimonial = () => {
 	return (
-		<div>
-			<h1 className="text-5xl font-bold mb-6 text-center mt-32 pb-4">
-				Testimonial
-			</h1>
-			<div class>
-
-			</div>
-			<div className="bannersetup bg-fixed pt-20 lg:h-[600px] h-[600] w-full">
-				<div className="lg:grid lg:grid-cols-2 max-w-5xl mx-auto">
+		<div className="mt-32">
+			<h2 className="text-center pb-3 lg:pb-6 text-2xl md:text-4xl lg:max-w-4xl font-bold mx-auto">
+				Our <span className="text-blue-800">Testimonial</span>
+			</h2>
+			<p className="text-center lg:max-w-2xl mx-auto text-lg lg:text-xl mb-4 md:mb-10 w-[65%] lg:w-[90%]">
+				They provide detailed information about the organizations and
+				initiatives they support, including financial disclosures and
+				project updates.
+			</p>
+			<div className="bannersetup bg-fixed h-fit w-full py-3">
+				<div className="lg:grid lg:grid-cols-2 md:grid md:grid-cols-2 grid grid-cols-1">
 					{/* 1st */}
-					<div className="pt-2 lg:pt-0">
-						<div className="triangle absolute inset-0 opacity-40 z-10">
-							<h1 className="relative z-20 text-black font-extrabold">
-								The donation options are diverse, and I
-								appreciate the transparency in showing how the
-								funds are used
+					<div className="pt-2 lg:pt-0 lg:w-[60%] mx-auto">
+						<div className="triangle absolute inset-0 text-center z-10">
+							<h1 className="relative z-20 text-center text-black">
+								One of the most compelling aspects of donation
+								websites is their accessibility. Anyone with
+								internet access can visit these platforms from
+								anywhere in the world, allowing individuals to
+								support causes regardless of geographical
+								boundaries.
 							</h1>
 						</div>
 						<div className="flex justify-center items-center ">
@@ -33,12 +38,16 @@ const Testimonial = () => {
 					</div>
 					{/* 1st end */}
 					{/* 2nd */}
-					<div>
-						<div className="triangle absolute inset-0 opacity-40 z-10">
-							<h1 className="relative z-20 text-black font-extrabold">
-								I have been using this platform to donate for a
-								while now, and it has never disappointed me.
-								Highly recommended!
+					<div className="pt-2 lg:pt-0  lg:w-[60%] mx-auto">
+						<div className="triangle absolute inset-0 text-center z-10">
+							<h1 className="relative z-20 text-black">
+								From humanitarian aid and disaster relief to
+								environmental conservation and education
+								initiatives, donation websites cater to a wide
+								spectrum of causes. This diversity allows donors
+								to align their contributions with issues that
+								resonate personally, fostering a sense of
+								empowerment and fulfillment.
 							</h1>
 						</div>
 						<div className="flex justify-center items-center ">
@@ -51,12 +60,15 @@ const Testimonial = () => {
 					</div>
 					{/* 2nd end */}
 					{/* 3rd */}
-					<div>
-						<div className="triangle absolute inset-0 opacity-40 z-10">
-							<h1 className="relative z-20 text-black font-extrabold">
-								I am really impressed with how easy it was to
-								donate on this website. The process was smooth
-								and secure.
+					<div className="pt-2 lg:pt-0 lg:w-[60%] mx-auto">
+						<div className="triangle absolute inset-0 text-center z-10">
+							<h1 className="relative z-20 text-black">
+								Donation websites facilitate peer-to-peer
+								fundraising, empowering individuals to create
+								personalized campaigns on behalf of their
+								favorite charities. This grassroots approach
+								harnesses the power of social networks,
+								exponentially expanding.
 							</h1>
 						</div>
 						<div className="flex justify-center items-center ">
@@ -69,12 +81,16 @@ const Testimonial = () => {
 					</div>
 					{/* 3rd end */}
 					{/* 4th */}
-					<div>
-						<div className="triangle absolute inset-0 opacity-40 z-10">
-							<h1 className="relative z-20 text-black font-extrabold">
-								I am really impressed with how easy it was to
-								donate on this website. The process was smooth
-								and secure.
+					<div className="pt-2 lg:pt-0 lg:w-[60%] mx-auto">
+						<div className="triangle absolute inset-0 text-center z-10">
+							<h1 className="relative z-20 text-black">
+								donation websites play a pivotal role in
+								democratizing philanthropy and driving social
+								impact worldwide. Through accessibility,
+								transparency, and technological innovation,
+								these platforms empower individuals to make
+								meaningful contributions to causes they care
+								about.
 							</h1>
 						</div>
 						<div className="flex justify-center items-center ">
@@ -87,7 +103,7 @@ const Testimonial = () => {
 					</div>
 					{/* 4th end */}
 				</div>
-				
+				{/* after two cols */}
 			</div>
 		</div>
 	);

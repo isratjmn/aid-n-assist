@@ -1,7 +1,5 @@
 "use client";
 import CommonBanner from "@/components/CommonBanner/CommonBanner";
-import Faq from "@/components/FAQ/Faq";
-import Partner from "@/components/Partner/Partner";
 
 const testimonialPage = () => {
 	return (
@@ -10,8 +8,7 @@ const testimonialPage = () => {
 				PageTittle={"frequently ask"}
 				color={"question"}
 			></CommonBanner>
-			<Faq></Faq>
-			<Partner></Partner>
+			<div className="mx-2 md:mx-0"></div>
 		</>
 	);
 };

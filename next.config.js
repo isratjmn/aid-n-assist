@@ -2,6 +2,14 @@
 const nextConfig = {
 	reactStrictMode: true,
 	images: {
+		domains: [
+			"lh3.googleusercontent.com",
+			"img.freepik.com",
+			"encrypted-tbn0.gstatic.com",
+			"media.istockphoto.com",
+			"images.unsplash.com",
+			"Dolore optio veniam",
+		],
 		remotePatterns: [
 			{
 				protocol: "https",
@@ -14,6 +22,10 @@ const nextConfig = {
 			{
 				protocol: "https",
 				hostname: "img.freepik.com",
+			},
+			{
+				protocol: "https",
+				hostname: "i.postimg.cc",
 			},
 		],
 	},

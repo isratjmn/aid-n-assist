@@ -35,49 +35,52 @@ const Contact = () => {
 	};
 
 	return (
-		<section className="my-10">
-			<div>
-				<h1 className="text-center font-bold mt-20 pb-10 text-5xl text-gray-600 mb-5">
-					Contact Us
-				</h1>
-			</div>
-			<div className="md:flex gap-4 lg:gap-14 justify-center items-center max-w-7xl mx-auto">
-				<div className="lg:w-[650px] md:w-[550px] w-[400px] h-96 lg:h-[500px] rounded-xl mx-auto lg:mt-9">
-					<Image width={750} height={550} src={contactimage} alt="" />
+		<section className="mt-20">
+			<div className="md:flex gap-4 lg:gap-14 justify-center items-center max-w-[1440px] mx-auto">
+				<div className="lg:w-[650px] md:w-[550px] w-full h-96 lg:h-[500px] rounded-xl mx-auto lg:mt-9">
+					<Image width={750} height={550} src={contactimage} alt="image" />
 				</div>
-				<div className="lg:ms-10 md:ms-0 lg:w-[50%] md:w-[70%]">
-					<div className="bg-gray-50 border-2 p-8 rounded-md shadow-md w-[90%] mx-auto">
+				<div className="lg:ms-10 md:ms-0 lg:w-[50%] md:w-[70%] w-full">
+					<h2 className="w-[90%] mx-auto mb-6 text-2xl md:text-4xl text-green-500 font-bold">
+						Contact <span className="">Us</span>
+					</h2>
+					<div
+						className="bg-gray-50 border-4 p-8 border-green-400  shadow-2xl w-[90%] mx-auto"
+						
+					>
 						<form
 							className="w-[100%] justify-center mt-3"
 							ref={form}
 							onSubmit={sendEmail}
 						>
-							<div className="font-bold mt-2">
+							<div className="font-bold mt-2 dark:text-green-400">
 								<label>Name</label>
 							</div>
 							<div>
 								<input
-									className="w-full border rounded-md border-emerald-500 p-2"
+									className="w-full border rounded-md border-emerald-500 p-2 text-black"
 									type="text"
-									name="user_name"
+									name="from_name"
+									autocomplete="name"
 								/>
 							</div>
-							<div className="font-bold mt-3">
+							<div className="font-bold mt-3 dark:text-green-400">
 								<label>Email</label>
 							</div>
 							<div>
 								<input
 									className="w-full border rounded-md border-emerald-500 p-2 text-black"
 									type="email"
-									name="user_email"
+									name="from_email"
+									autocomplete="email"
 								/>
 							</div>
-							<div className="font-bold mt-3">
+							<div className="font-bold mt-3 dark:text-green-400 ">
 								<label>Message</label>
 							</div>
 							<div>
 								<textarea
-									className="w-full h-48 border rounded-md border-emerald-500 p-2"
+									className="w-full h-48 border rounded-md border-emerald-500 p-2 text-black"
 									name="message"
 								/>
 							</div>

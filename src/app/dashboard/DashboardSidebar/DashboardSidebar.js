@@ -1,11 +1,101 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import { RiSettings3Fill } from "react-icons/ri";
+import React, { useState } from "react";
+import {
+	FaUserShield,
+	FaIdCardAlt,
+
+	FaCcStripe,
+	FaMoneyBillAlt,
+	FaShoppingCart,
+	FaSignOutAlt,
+	FaUserAlt,
+	FaHistory,
+} from "react-icons/fa";
+import { RiAccountCircleLine, RiAddBoxFill } from "react-icons/ri";
+import { HiHome } from "react-icons/hi";
+import { MdEventAvailable, MdEventNote } from "react-icons/md";
+import { BsFillPeopleFill } from "react-icons/bs";
+import { BiSolidDonateHeart } from "react-icons/bi";
+import useAdmin from "@/hooks/useAdmin";
+import useDonor from "@/hooks/useDonor";
+import useAuth from "@/hooks/useAuth";
+import { usePathname, useRouter } from "next/navigation";
+
+import toast from "react-hot-toast";
 
 const DashboardSidebar = () => {
+	const { user, logout } = useAuth();
+	const { email, photoURL, displayName } = user || {};
+	const [isSmallScreen, setIsSmallScreen] = useState(false);
+	const [isAdmin, isAdminLoading] = useAdmin();
+	const [isDonor, isDonorLoading] = useDonor();
+	const { replace } = useRouter();
+	const path = usePathname();
+	if (isAdminLoading) {
+		return (
+			<div className="text-center">
+				<div role="status">
+					<svg
+						aria-hidden="true"
+						className="inline w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-green-500"
+						viewBox="0 0 100 101"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+							fill="currentColor"
+						/>
+						<path
+							d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+							fill="currentFill"
+						/>
+					</svg>
+					<span className="sr-only">Loading...</span>
+				</div>
+			</div>
+		);
+	} else if (isDonorLoading) {
+		return (
+			<div className="text-center">
+				<div role="status">
+					<svg
+						aria-hidden="true"
+						className="inline w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-green-500"
+						viewBox="0 0 100 101"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+							fill="currentColor"
+						/>
+						<path
+							d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+							fill="currentFill"
+						/>
+					</svg>
+					<span className="sr-only">Loading...</span>
+				</div>
+			</div>
+		);
+	}
+	const handleLogOut = async () => {
+		await logout();
+		const res = await fetch("/api/auth/logout", {
+			method: "POST",
+		});
+		const data = await res.json();
+		toast.success("Successfully Logout!");
+		if (path.includes("/dashboard")) {
+			replace("/");
+		}
+	};
+
 	return (
-		<section>
+		<div>
 			<button
 				data-drawer-target="logo-sidebar"
 				data-drawer-toggle="logo-sidebar"
@@ -34,7 +124,7 @@ const DashboardSidebar = () => {
 				className="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
 				aria-label="Sidebar"
 			>
-				<div className="h-full px-3 py-4 overflow-y-auto bg-emerald-200 dark:bg-gray-800">
+				<div className="h-full px-3 py-4 overflow-y-auto bg-green-200 dark:bg-gray-800">
 					<a href="/" className="flex items-center pl-2.5 mb-5">
 						<Image
 							src="/heart.png"
@@ -53,241 +143,211 @@ const DashboardSidebar = () => {
 					<div className="mb-5">
 						<div className="flex justify-center mt-5 mb-2">
 							<Image
-								src="https://img.freepik.com/free-icon/user_318-159711.jpg"
+								className="rounded-full"
+								src={
+									photoURL ||
+									"https://img.freepik.com/free-icon/user_318-159711.jpg"
+								}
 								alt="No one Here"
 								width={100}
 								height={100}
 							></Image>
 						</div>
 						<div>
-							<h2 className="text-center text-xl">
-								Profile Name
+							<h2 className="text-center text-lg font-bold">
+								{displayName || "Profile Name"}
 							</h2>
 							<p className="text-center text-sm italic">
-								email@info.com
+								{email}
 							</p>
 						</div>
 					</div>
 					<div className=" bg-teal-500 rounded-2xl h-[5px] mb-10"></div>
 
-					<ul className="space-y-2 font-medium">
+					{/* Role-specific menu items */}
+					{isAdmin ? (
+						<>
+							<ul>
+								<h2 className="flex gap-3 ml-3 text-blue-800 font-bold align-middle pb-2 items-center">
+									<FaUserShield className="text-xl" /> Admin
+									Dashboard
+								</h2>
+								<li>
+									<Link
+										href="/dashboard/allroles"
+										className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+									>
+										<MdEventNote className="text-2xl dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white text-lime-700"></MdEventNote>
+										<span className="flex-1 ml-3 whitespace-nowrap">
+											Manage Users
+										</span>
+									</Link>
+								</li>
+								<li>
+									<Link
+										href="/dashboard/viewfeedback"
+										className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+									>
+										<FaIdCardAlt className="text-xl mr-4 text-lime-700" />
+										FeedBacks
+									</Link>
+								</li>
+								<li>
+									<Link
+										href="/dashboard/adminstripemoney"
+										className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+									>
+										<FaCcStripe className="text-xl mr-4 text-lime-700" />
+										Admin Stripe Money
+									</Link>
+								</li>
+								<li>
+									<Link
+										href="/dashboard/adminsslmoney"
+										className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+									>
+										<FaMoneyBillAlt className="text-xl mr-4 text-lime-700" />
+										Admin Ssl Commerz Money
+									</Link>
+								</li>
+							</ul>
+						</>
+					) : isDonor ? (
+						<>
+							<ul>
+								<h2 className="flex gap-3 ml-3 text-blue-800 font-bold align-middle pb-2 items-center">
+									<BiSolidDonateHeart className="text-2xl" />
+									Donor Dashboard
+								</h2>
+								<li className="mb-4">
+									<Link
+										href="/dashboard/addaclass"
+										className="text-black pt-6 lg:text-black text-semibold text-base flex gap-3 items-center"
+									>
+										<RiAddBoxFill className="text-2xl text-lime-700" />
+										Add Classes
+									</Link>
+								</li>
+							</ul>
+						</>
+					) : (
+						<>
+							<ul>
+								<h2 className=" flex gap-3 ml-3 text-blue-800 font-bold align-middle pb-2 items-center">
+									<RiAccountCircleLine className="text-2xl" />
+									User Dashboard
+								</h2>
+
+								<li>
+									<Link
+										href="/dashboard/userCart"
+										className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+									>
+										<FaShoppingCart className="text-2xl text-lime-700 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></FaShoppingCart>
+										<span className="flex-1 ml-3 whitespace-nowrap gap-4">
+											Cart
+										</span>
+									</Link>
+								</li>
+								<li>
+									<Link
+										href="/dashboard/volunteeredit"
+										className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+									>
+										<BsFillPeopleFill className="text-2xl text-lime-700 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></BsFillPeopleFill>
+										<span className="flex-1 ml-3 whitespace-nowrap gap-4">
+											Volunteer
+										</span>
+									</Link>
+								</li>
+								<li>
+									<Link
+										href="/dashboard/storePHistories"
+										className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+									>
+										<FaMoneyBillAlt className="text-2xl dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white text-lime-700"></FaMoneyBillAlt>
+										<span className="flex-1 ml-3 whitespace-nowrap">
+											Ssl Commerz Payment
+										</span>
+									</Link>
+								</li>
+								<li>
+									<Link
+										href="/dashboard/stripepayment"
+										className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+									>
+										<FaCcStripe className="text-2xl dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white text-lime-700"></FaCcStripe>
+										<span className="flex-1 ml-3 whitespace-nowrap">
+											Stripe Payment
+										</span>
+									</Link>
+								</li>
+								<li>
+									<Link
+										href="/dashboard/donorhistory"
+										className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+									>
+										<FaHistory className="text-2xl text-lime-700 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></FaHistory>
+										<span className="flex-1 ml-3 whitespace-nowrap">
+											Donor History
+										</span>
+									</Link>
+								</li>
+								<li>
+									<Link
+										href="/dashboard/viewfeedback"
+										className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+									>
+										<FaIdCardAlt className="text-2xl text-lime-700 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></FaIdCardAlt>
+										<span className="flex-1 ml-3 whitespace-nowrap">
+											FeedBacks
+										</span>
+									</Link>
+								</li>
+								<li>
+									<Link
+										href="/dashboard/selectedEvents"
+										className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+									>
+										<MdEventAvailable className="text-2xl text-lime-700 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></MdEventAvailable>
+										<span className="flex-1 ml-3 whitespace-nowrap">
+											Events
+										</span>
+									</Link>
+								</li>
+							</ul>
+						</>
+					)}
+					<div className=" bg-teal-500 rounded-2xl mt-10 h-[5px] mb-2"></div>
+
+					<ul>
 						<li>
 							<Link
-								href="/dashboard"
+								href="/"
 								className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
 							>
-								<svg
-									className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-									aria-hidden="true"
-									xmlns="http://www.w3.org/2000/svg"
-									fill="currentColor"
-									viewBox="0 0 22 21"
-								>
-									<path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
-									<path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
-								</svg>
-								<span className="ml-3">Home board</span>
-							</Link>
-						</li>
-						<li>
-							<Link
-								href="/dashboard/eventView"
-								className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-							>
-								<svg
-									className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-									aria-hidden="true"
-									xmlns="http://www.w3.org/2000/svg"
-									fill="currentColor"
-									viewBox="0 0 18 18"
-								>
-									<path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
-								</svg>
+								<HiHome className="text-2xl text-lime-700 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
 								<span className="flex-1 ml-3 whitespace-nowrap">
-									Events{" "}
+									Home
 								</span>
 							</Link>
-						</li>
-						<li>
-							<Link
-								href="/dashboard/selectedEvents"
-								className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-							>
-								<svg
-									className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-									aria-hidden="true"
-									xmlns="http://www.w3.org/2000/svg"
-									fill="currentColor"
-									viewBox="0 0 20 20"
-								>
-									<path d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z" />
-								</svg>
-								<span className="flex-1 ml-3 whitespace-nowrap">
-									Selected Events
-								</span>
-							</Link>
-						</li>
-						<li>
+
 							<Link
 								href="#"
 								className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
 							>
-								<svg
-									className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-									aria-hidden="true"
-									xmlns="http://www.w3.org/2000/svg"
-									fill="currentColor"
-									viewBox="0 0 20 18"
-								>
-									<path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
-								</svg>
+								<FaSignOutAlt className="text-2xl text-lime-700 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
 								<span className="flex-1 ml-3 whitespace-nowrap">
-									Users
-								</span>
-							</Link>
-						</li>
-						<li>
-							<Link
-								href="/dashboard/profileSetting"
-								className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-							>
-								<RiSettings3Fill className="text-2xl text-gray-500 group-hover:text-gray-900"></RiSettings3Fill>
-								<span className="flex-1 ml-3 whitespace-nowrap">
-									Setting
-								</span>
-							</Link>
-						</li>
-						<li>
-							<Link
-								href="#"
-								className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-							>
-								<svg
-									className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-									aria-hidden="true"
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 18 16"
-								>
-									<path
-										stroke="currentColor"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										stroke-width="2"
-										d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"
-									/>
-								</svg>
-								<span className="flex-1 ml-3 whitespace-nowrap">
-									Logout
+									<button onClick={handleLogOut}>
+										Logout
+									</button>
 								</span>
 							</Link>
 						</li>
 					</ul>
 				</div>
 			</aside>
-
-			{/* <div className="p-4 sm:ml-64">
-                <div className="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
-                    <div className="grid grid-cols-3 gap-4 mb-4">
-                        <div className="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
-                            <p className="text-2xl text-gray-400 dark:text-gray-500">
-                                <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                                </svg>
-                            </p>
-                        </div>
-                        <div className="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
-                            <p className="text-2xl text-gray-400 dark:text-gray-500">
-                                <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                                </svg>
-                            </p>
-                        </div>
-                        <div className="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
-                            <p className="text-2xl text-gray-400 dark:text-gray-500">
-                                <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                                </svg>
-                            </p>
-                        </div>
-                    </div>
-                    <div className="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
-                        <p className="text-2xl text-gray-400 dark:text-gray-500">
-                            <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                            </svg>
-                        </p>
-                    </div>
-                    <div className="grid grid-cols-2 gap-4 mb-4">
-                        <div className="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                            <p className="text-2xl text-gray-400 dark:text-gray-500">
-                                <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                                </svg>
-                            </p>
-                        </div>
-                        <div className="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                            <p className="text-2xl text-gray-400 dark:text-gray-500">
-                                <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                                </svg>
-                            </p>
-                        </div>
-                        <div className="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                            <p className="text-2xl text-gray-400 dark:text-gray-500">
-                                <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                                </svg>
-                            </p>
-                        </div>
-                        <div className="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                            <p className="text-2xl text-gray-400 dark:text-gray-500">
-                                <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                                </svg>
-                            </p>
-                        </div>
-                    </div>
-                    <div className="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
-                        <p className="text-2xl text-gray-400 dark:text-gray-500">
-                            <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                            </svg>
-                        </p>
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                        <div className="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                            <p className="text-2xl text-gray-400 dark:text-gray-500">
-                                <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                                </svg>
-                            </p>
-                        </div>
-                        <div className="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                            <p className="text-2xl text-gray-400 dark:text-gray-500">
-                                <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                                </svg>
-                            </p>
-                        </div>
-                        <div className="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                            <p className="text-2xl text-gray-400 dark:text-gray-500">
-                                <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                                </svg>
-                            </p>
-                        </div>
-                        <div className="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-                            <p className="text-2xl text-gray-400 dark:text-gray-500">
-                                <svg className="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                                </svg>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
-		</section>
+		</div>
 	);
 };
 

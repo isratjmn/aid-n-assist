@@ -16,7 +16,7 @@ const SingleHomeSlider = ({ slider = {} }) => {
 					text={title}
 					as="h1"
 					renderSeparator={() => <div className="mt-1 md:mt-4" />}
-					className="font-bold font-serif text-3xl md:text-4xl lg:text-5xl"
+					className="font-bold text-3xl md:text-4xl lg:text-5xl"
 					highlight={["AidNAssist", "Need", "Children", "Humanity"]}
 					highlightClassName="text-4xl md:text-5xl lg:text-6xl text-green-300"
 				/>

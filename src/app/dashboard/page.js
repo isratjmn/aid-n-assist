@@ -1,12 +1,12 @@
-import DonateNow from '@/components/DonateNow/DonateNow';
-import React from 'react';
+import React from "react";
+import AdminHomepage from "./adminhome/page";
 
 const DashboardPage = () => {
-    return (
-        <div>
-            <DonateNow/>
-        </div>
-    );
+	return (
+		<div>
+			<AdminHomepage></AdminHomepage>
+		</div>
+	);
 };
 
 export default DashboardPage;

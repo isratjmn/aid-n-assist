@@ -1,12 +1,10 @@
 "use client";
-
 import Image from "next/image";
-import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 import teamWork from "../../../../public/groupImage.gif";
-const imgToken = process.env.NEXT_PUBLIC_IMGBB_API_Token;
+import toast, { Toaster } from "react-hot-toast";
 
-//---- For Getting the environment variables we have to use [process.env.key_name] instead of [import.meta.env.key_name] in NEXT JS -source NEXT JS  Environment Variables Docs----//
-// For Names we have to use NEXT_PUBLIC_Key_name, Exceptions only to db name and password
+const imgToken = process.env.NEXT_PUBLIC_IMGBB_API_Token;
 
 const Volunteers = () => {
 	const img_hosting_URl = `https://api.imgbb.com/1/upload?key=${imgToken}`;
@@ -54,32 +52,36 @@ const Volunteers = () => {
 	};
 
 	return (
-		<section className="bg-gray-100 min-h-screen pt-8 mt-14">
-			<div className="border rounded-lg m-10 md:m-16 lg:mt-10 lg:mb-20 lg:mx-52 lg:px-20 lg:py-14 md:p-16 p-10 bg-white shadow-lg">
-				<h2 className="text-center font-bold text-4xl text-emerald-600 mb-2">
+		<div className="mt-40">
+			<div className="m-4 md:m-2 lg:mt-10 lg:mb-20 lg:mx-10 lg:py-14 md:p-16 p-10">
+				<h2 className="text-center text-4xl text-green-700 font-extrabold">
 					Become a Volunteer
 				</h2>
-				<p className="text-center text-sm mb-5 lg:mb-10">
+				<p className="text-center text-sm mb-5 lg:mb-10 mt-6">
 					If you want to be a Volunteer then fill up this form
 				</p>
 
-				<div className="flex flex-col lg:flex-row justify-center items-center gap-20">
-					<div className="w-full lg:w-1/2">
+				<div className="flex flex-col lg:flex-row justify-center lg:items-start lg:gap-10">
+					<div>
 						<Image src={teamWork} width={500} alt="Nothing here" />
 					</div>
-					<div className="w-full lg:w-1/2 border border-emerald-600 rounded-lg p-8">
-						<form onSubmit={handleVolunteers} className="space-y-4">
-							<div className="relative z-0">
+					<div className="rounded-lg border-green-700 p-8 border-4">
+						<form onSubmit={handleVolunteers}>
+							<div className="relative z-0 w-full mb-6 group">
 								<input
 									type="text"
+									name="name"
+									id="name"
 									className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-400 focus:outline-none focus:ring-0 focus:border-green-400 peer"
-									placeholder="Name"
+									placeholder=" "
 									required
 								/>
 								<label
 									for="name"
 									className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300  -translate-y-6  top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-400 peer-focus:dark:text-green-400  peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-6"
-								></label>
+								>
+									Name
+								</label>
 							</div>
 							<div className="relative z-0 w-full mb-6 group">
 								<input
@@ -87,13 +89,15 @@ const Volunteers = () => {
 									name="email"
 									id="email"
 									className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-400 peer"
-									placeholder="Email"
+									placeholder=" "
 									required
 								/>
 								<label
 									for="email"
 									className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300  -translate-y-6 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-400 peer-focus:dark:text-green-400  peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-6"
-								></label>
+								>
+									Email
+								</label>
 							</div>
 							<div className="relative z-0 w-full mb-6 group">
 								<input
@@ -101,13 +105,15 @@ const Volunteers = () => {
 									name="imageURL"
 									id="imageURL"
 									className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-400 focus:outline-none focus:ring-0 focus:border-green-400 peer"
-									placeholder="Image"
+									placeholder=" "
 									required
 								/>
 								<label
 									for="imageURL"
 									className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300  -translate-y-6 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-400 peer-focus:dark:text-green-400  peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-6"
-								></label>
+								>
+									Image
+								</label>
 							</div>
 							<div className="grid md:grid-cols-2 md:gap-6">
 								<div className="relative z-0 w-full mb-6 group">
@@ -117,13 +123,15 @@ const Volunteers = () => {
 										name="designation"
 										id="designation"
 										className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-400 focus:outline-none focus:ring-0 focus:border-green-400 peer"
-										placeholder="Designation"
+										placeholder=" "
 										readOnly
 									/>
 									<label
 										for="designation"
 										className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300  -translate-y-6 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-400 peer-focus:dark:text-green-400  peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-6"
-									></label>
+									>
+										Designation
+									</label>
 								</div>
 								<div className="relative z-0 w-full mb-6 group">
 									<input
@@ -131,13 +139,15 @@ const Volunteers = () => {
 										name="bloodGroup"
 										id="bloodGroup"
 										className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-400 focus:outline-none focus:ring-0 focus:border-green-400 peer"
-										placeholder="Blood Group"
+										placeholder=" "
 										required
 									/>
 									<label
 										for="bloodGroup"
 										className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300  -translate-y-6 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-400 peer-focus:dark:text-green-400  peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-6"
-									></label>
+									>
+										Blood Group
+									</label>
 								</div>
 							</div>
 
@@ -147,13 +157,15 @@ const Volunteers = () => {
 									name="phoneNumber"
 									id="phoneNumber"
 									className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-400 focus:outline-none focus:ring-0 focus:border-green-400 peer"
-									placeholder="Phone number (+8801xxxxxxxxx)"
+									placeholder=" "
 									required
 								/>
 								<label
 									for="phoneNumber"
 									className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300  -translate-y-6 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-400 peer-focus:dark:text-green-400  peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-6"
-								></label>
+								>
+									Phone number (+8801xxxxxxxxx)
+								</label>
 							</div>
 							<div className="relative z-0 w-full mb-6 group">
 								<input
@@ -161,13 +173,15 @@ const Volunteers = () => {
 									name="workPlace"
 									id="workPlace"
 									className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-400 focus:outline-none focus:ring-0 focus:border-green-400 peer"
-									placeholder="Work Place"
+									placeholder=" "
 									required
 								/>
 								<label
 									for="workPlace"
 									className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300  -translate-y-6 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-400 peer-focus:dark:text-green-400  peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-6"
-								></label>
+								>
+									Work Place
+								</label>
 							</div>
 
 							<button
@@ -179,11 +193,9 @@ const Volunteers = () => {
 						</form>
 					</div>
 				</div>
-				<h2 className="text-center md:text-end lg:text-end md:text-xs lg:text-xs md:mx-10 lg:mx-10 my-5 text-emerald-600">
-					(*Please Wait some moment to upload the image)
-				</h2>
 			</div>
-		</section>
+			<Toaster />
+		</div>
 	);
 };
 

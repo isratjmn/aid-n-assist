@@ -1,6 +1,6 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 import { FaFacebook, FaTwitter } from "react-icons/fa";
 import { IoIosLink } from "react-icons/io";
 

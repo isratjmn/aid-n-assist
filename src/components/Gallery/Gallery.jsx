@@ -1,24 +1,23 @@
 "use client";
 import "./Gallery.css";
 import ImageOne from "../../../public/Gallery/gallery-1.jpg";
-import ImageTwo from "../../../public/Gallery/gallery-2.jpg";
-import ImageThree from "../../../public/Gallery/gallery-3.jpg";
 import ImageFour from "../../../public/Gallery/gallery-4.jpg";
 import ImageFive from "../../../public/Gallery/gallery-5.jpg";
 import ImageSix from "../../../public/Gallery/gallery-6.jpg";
 import ImageSeven from "../../../public/Gallery/gallery-7.jpg";
 import ImageEight from "../../../public/Gallery/gallery-8.jpg";
 import Image from "next/image";
+import "aos/dist/aos.css";
 
 const Gallery = () => {
 	return (
 		<>
 			<section>
 				<div className="container mx-auto mt-20">
-					<h2 className="text-center pt-20 pb-6 text-5xl lg:max-w-4xl font-bold mx-auto">
+					<h2 className="text-center pb-3 lg:pb-6 text-2xl md:text-4xl lg:max-w-4xl font-bold mx-auto">
 						Our <span className="text-blue-800">Gallery</span>
 					</h2>
-					<p className="text-center lg:max-w-2xl mx-auto text-xl mb-16">
+					<p className="text-center lg:max-w-2xl mx-auto text-lg lg:text-xl mb-4 md:mb-10 w-[65%] lg:w-[90%]">
 						Enhance the functionality and design of the gallery
 						based on your specific requirements and design
 						preferences.

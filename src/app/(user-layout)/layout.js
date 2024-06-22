@@ -1,8 +1,7 @@
 import Footer from "@/components/Footer/Footer";
 import Navbar from "@/components/Navbar/Navbar";
+import WhatsappAPK from "@/components/whatsapp/Whatsapp";
 import Providers from "@/providers";
-import Image from "next/image";
-import React from "react";
 import { Toaster } from "react-hot-toast";
 
 const UserLayout = ({ children }) => {
@@ -10,6 +9,7 @@ const UserLayout = ({ children }) => {
 		<div>
 			<Providers>
 				<Navbar />
+				<WhatsappAPK />
 				{children}
 				<Footer />
 			</Providers>

@@ -9,7 +9,7 @@ const Footer = () => {
 	return (
 		<section>
 			<footer className="bg-blue-900 pt-10 dark:bg-gray-900 text-white">
-				<div className="mx-auto w-[95%] max-w-screen-xl text-white">
+				<div className="mx-auto w-[95%] max-w-screen-2xl text-white">
 					<div className="grid grid-cols-1 gap-4 px-4 py-6 md:py-8 md:grid-cols-4">
 						<div>
 							<div className="flex items-center align-middle gap-2 mb-3">
@@ -38,30 +38,33 @@ const Footer = () => {
 							</h2>
 							<ul className="text-white dark:text-gray-400 font-medium">
 								<li className="mb-4">
-									<a href="#" className="hover:underline">
+									<a href="/" className="hover:underline">
 										Home
 									</a>
 								</li>
 								<li className="mb-4">
-									<a href="#" className="hover:underline">
+									<a href="about" className="hover:underline">
 										About Us
 									</a>
 								</li>
 								<li className="mb-4">
-									<a href="#" className="hover:underline">
+									<a
+										href="#causes"
+										className="hover:underline"
+									>
 										Causes
 									</a>
 								</li>
 								<li className="mb-4">
 									<a
-										href="#"
+										href="#gallery"
 										className="text-white hover:underline"
 									>
 										Gallery
 									</a>
 								</li>
 								<li className="mb-4">
-									<a href="#" className="hover:underline">
+									<a href="event" className="hover:underline">
 										Event
 									</a>
 								</li>
@@ -75,22 +78,22 @@ const Footer = () => {
 								<li className="mb-2 flex gap-2">
 									<MdOutlinePhoneInTalk className="text-emerald-600 text-2xl" />
 
-									<snap className="mb-1 text-sm">
-										Phone: <br /> +123 678 1478
-									</snap>
+									<span className="mb-1 text-sm">
+										Phone: <br /> +8801846854448
+									</span>
 								</li>
 								<li className="mb-2 flex gap-2">
 									<BsEnvelopeHeart className="text-emerald-600 text-2xl" />
-									<snap className="mb-1 text-sm">
-										Email: <br /> yuntun@menteo.com
-									</snap>
+									<span className="mb-1 text-sm">
+										Email: <br /> AidNAssist2023@info.com
+									</span>
 								</li>
 								<li className="mb-2 flex gap-2">
 									<RiMapPinRangeFill className="text-emerald-600 text-3xl" />
-									<snap className="mb-1 text-sm">
+									<span className="mb-1 text-sm">
 										Address: <br /> 643 Farragut Street
 										Northwest, Washington AR 20011
-									</snap>
+									</span>
 								</li>
 							</ul>
 						</div>
@@ -109,8 +112,8 @@ const Footer = () => {
 										type="email"
 										id="email"
 										name="email"
-										className="w-[80%] p-2 border rounded outline-none focus:border-emerald-600"
-										placeholder="you@example.com"
+										className="w-[80%] p-2 border rounded text-black outline-none focus:border-emerald-600"
+										placeholder="name@mail.com"
 										required
 									/>
 								</div>
@@ -126,7 +129,7 @@ const Footer = () => {
 					<hr className="border-emerald-400 sm:mx-auto dark:border-gray-700 lg:my-1" />
 					<div className="px-4 py-6 bg-blue-900 dark:bg-gray-700 md:flex md:items-center md:justify-between">
 						<span className="text-sm text-white dark:text-gray-300 sm:text-center">
-							© 2023{" "}
+							© 2023
 							<a href="https://flowbite.com/">Aid&Assist</a>. All
 							Rights Reserved.
 						</span>

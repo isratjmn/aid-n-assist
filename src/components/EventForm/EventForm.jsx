@@ -8,10 +8,8 @@ const EventForm = () => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm();
-	// console.log(event_img_token);
-	const onSubmit = (data) => {
-		console.log({ data });
 
+	const onSubmit = (data) => {
 		fetch("/api/events", {
 			method: "POST",
 			headers: {
@@ -21,7 +19,6 @@ const EventForm = () => {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data);
 				toast("successful event added");
 			})
 			.catch((error) => {

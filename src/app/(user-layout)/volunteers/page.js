@@ -39,7 +39,6 @@ const Volunteers = () => {
 				phoneNumber: parseInt(phoneNumber),
 				workPlace,
 			};
-			console.log({ volunteerData });
 			let result = await fetch("/api/volunteers", {
 				method: "POST",
 				body: JSON.stringify(volunteerData),

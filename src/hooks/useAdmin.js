@@ -12,7 +12,6 @@ const useAdmin = () => {
 				let response = await fetch(`/api/users/admin/${user?.email}`);
 				let data = await response.json();
 				let result = data.result;
-				console.log("Is Admin Response", response);
 
 				setIsAdmin(result);
 				setIsAdminLoading(false);

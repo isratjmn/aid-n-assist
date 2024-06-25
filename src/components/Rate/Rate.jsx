@@ -1,9 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import React, { useMemo, useState } from "react";
 import PropTypes from "prop-types";
-
 import { FaStar } from "react-icons/fa";
-// import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const Rate = ({ count, rating, color, onRating }) => {
 	const [hoverRating, setHoverRating] = useState(0);

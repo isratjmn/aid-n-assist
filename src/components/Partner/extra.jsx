@@ -53,7 +53,7 @@ const Partner = () => {
 					/>
 				</SwiperSlide>
 				<SwiperSlide>
-					<img
+					<Image
 						width={60}
 						height={60}
 						src="/partner/2.png"
@@ -62,7 +62,7 @@ const Partner = () => {
 					/>
 				</SwiperSlide>
 				<SwiperSlide>
-					<img
+					<Image
 						width={60}
 						height={60}
 						src="/partner/3.png"
@@ -71,7 +71,7 @@ const Partner = () => {
 					/>
 				</SwiperSlide>
 				<SwiperSlide>
-					<img
+					<Image
 						width={60}
 						height={60}
 						src="/partner/4.png"
@@ -80,7 +80,7 @@ const Partner = () => {
 					/>
 				</SwiperSlide>
 				<SwiperSlide>
-					<img
+					<Image
 						width={60}
 						height={60}
 						src="/partner/1.png"
@@ -89,7 +89,7 @@ const Partner = () => {
 					/>
 				</SwiperSlide>
 				<SwiperSlide>
-					<img
+					<Image
 						width={60}
 						height={60}
 						src="/partner/2.png"
@@ -98,7 +98,7 @@ const Partner = () => {
 					/>
 				</SwiperSlide>
 				<SwiperSlide>
-					<img
+					<Image
 						width={60}
 						height={60}
 						src="/partner/3.png"

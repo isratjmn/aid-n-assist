@@ -7,7 +7,7 @@ import TextToSpeech from "@/components/TextToSpeech/TextToSpeech";
 
 import React from "react";
 
-export const metadata = {
+const metadata = {
 	title: "AidNAssist | Contact us",
 	description: "By Matrix Coders Unity",
 };

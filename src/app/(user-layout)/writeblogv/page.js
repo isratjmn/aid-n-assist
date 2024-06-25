@@ -40,7 +40,6 @@ const WriteBlog = () => {
 				blog_title,
 				blog_content,
 			};
-			console.log({ blogdata });
 			let result = await fetch("/api/vblogs", {
 				method: "POST",
 				body: JSON.stringify(blogdata),

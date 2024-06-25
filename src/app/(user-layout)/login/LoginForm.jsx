@@ -1,5 +1,4 @@
 "use client";
-
 import GoogleLogin from "@/components/GoogleLogin";
 import useAuth from "@/hooks/useAuth";
 import createJWT from "@/util/createJWT";

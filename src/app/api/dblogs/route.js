@@ -9,7 +9,6 @@ export async function GET() {
 
     await mongoose.connect(connectionSrt);
     const data = await donatorsBlogmodel.find();
-    console.log(data);
 
     return NextResponse.json({ result: data, success: true })
 }

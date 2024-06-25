@@ -38,7 +38,6 @@ export async function POST(request) {
             shipping_method: "NO",
         }
         const response = await sslCommerz.init(data)
-        console.log(response);
         await StorePayments.create({
             price,
             email,

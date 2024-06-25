@@ -20,7 +20,6 @@ const Contact = () => {
 			)
 			.then(
 				(result) => {
-					console.log(result.text);
 					Swal.fire(
 						"Sent your Message Successfully",
 						"You clicked the button!",

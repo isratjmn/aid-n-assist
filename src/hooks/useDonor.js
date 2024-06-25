@@ -12,7 +12,6 @@ const useDonor = () => {
 				let response = await fetch(`/api/users/donor/${user?.email}`);
 				let data = await response.json();
 				let result = data.result;
-				console.log("Is Donor Response", response);
 
 				setIsDonor(result);
 				setIsDonorLoading(false);

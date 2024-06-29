@@ -32,16 +32,6 @@ When anyone visits this website, they can choose from different causes that they
 
 The website is super safe and secure, just like when you buy things online. You can use your credit card or other ways to pay. Once you give, the website shows you how your kindness is helping. It might even tell you about the kids going to school or the animals finding new homes because of you!
 
-## Table of Contents
-
-- [Features](#features)
-- [Installation and Setup](#installation-and-setup)
-- [Technologies Used](#technologies-used)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
-
 ## Features
 
 - **User Authentication:** Secure user login and registration.

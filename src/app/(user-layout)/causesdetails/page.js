@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import CommonBanner from "@/components/CommonBanner/CommonBanner";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { HiOutlineHeart } from "react-icons/hi";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 

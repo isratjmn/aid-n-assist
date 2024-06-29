@@ -6,7 +6,7 @@ const DonateTabMoney = ({ product, onPriceClick }) => {
 	}
 	const { price } = product;
 	return (
-		<div className="bg-white shadow-md w-24 mx-auto rounded-lg overflow-hidden transform transition duration-500 hover:scale-105">
+		<div className="bg-white pr-6 shadow-md w-24 mx-auto rounded-lg overflow-hidden transform transition duration-500 hover:scale-105">
 			<button onClick={() => onPriceClick(price)}>
 				<div className="mx-auto py-2 p-3">
 					<div className="text-center">
@@ -21,5 +21,3 @@ const DonateTabMoney = ({ product, onPriceClick }) => {
 };
 
 export default DonateTabMoney;
-
-

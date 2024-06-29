@@ -46,22 +46,22 @@ const DonatePayment = () => {
 
 	return (
 		<div data-aos="zoom-in-right" className="px-4 lg:px-0">
-			<div className="mt-14 flex flex-col lg:flex-row justify-center items-center gap-10 lg:gap-20">
-				<div className="lg:max-w-lg w-[80%]">
+			<div className="mt-14 flex flex-col lg:flex-row justify-center items-center gap-10 lg:gap-20 mx-auto">
+				<div className="lg:max-w-lg w-[80%] mx-auto">
 					<h1 className="text-3xl font-bold text-center lg:text-left">
 						New mothers and newborns urgently need your help
 					</h1>
-					<p className="font-semibold mt-2 text-center lg:text-left">
+					<p className="mt-2 mx-auto text-center lg:text-left w-[80%]">
 						Forced to give birth while fleeing conflict, new mothers
 						and their newborns are urgently counting on our help.
 					</p>
 
-					<p className="font-semibold mt-3 text-center lg:text-left">
+					<p className="mt-3 mx-auto text-center lg:text-left w-[80%]">
 						Please make an act of kindness for a mother and her
 						newborn and send a Mama Kit now.
 					</p>
 				</div>
-				<div className="w-full lg:w-96">
+				<div className="w-full lg:w-96 text-lg font-bold">
 					<Tabs>
 						<TabList className="flex justify-center lg:justify-start">
 							<Tab className="cursor-pointer p-2 text-gray-600">

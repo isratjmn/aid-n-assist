@@ -73,6 +73,7 @@ const CausePage = () => {
 			<CommonBanner
 				PageTittle={"Donation "}
 				color={"Form"}
+				image="https://i0.wp.com/movingtips.wpengine.com/wp-content/uploads/2021/01/donation.jpg?fit=1200%2C800&ssl=1"
 			></CommonBanner>
 
 			<div className="flex mx-auto max-w-6xl gap-10 py-10">

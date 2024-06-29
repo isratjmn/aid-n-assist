@@ -5,12 +5,10 @@ import React, { useState } from "react";
 import {
 	FaUserShield,
 	FaIdCardAlt,
-
 	FaCcStripe,
 	FaMoneyBillAlt,
 	FaShoppingCart,
 	FaSignOutAlt,
-	FaUserAlt,
 	FaHistory,
 } from "react-icons/fa";
 import { RiAccountCircleLine, RiAddBoxFill } from "react-icons/ri";
@@ -237,18 +235,6 @@ const DashboardSidebar = () => {
 									<RiAccountCircleLine className="text-2xl" />
 									User Dashboard
 								</h2>
-
-								<li>
-									<Link
-										href="/dashboard/userCart"
-										className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-									>
-										<FaShoppingCart className="text-2xl text-lime-700 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></FaShoppingCart>
-										<span className="flex-1 ml-3 whitespace-nowrap gap-4">
-											Cart
-										</span>
-									</Link>
-								</li>
 								<li>
 									<Link
 										href="/dashboard/volunteeredit"
